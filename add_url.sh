@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # v1.0 stuart.moore@monitisegroup.com
-#	+ Just adds the host, including ssh and / filesystem checking.
+#	+ Adds the URL. Simples.
 
 usage()
 {
@@ -15,7 +15,7 @@ OPTIONS:
 	-g Hostgroup			
 	-h Show this message
 	-H FQDN of the host to be added
-	-s service to be checked (http, matml_core)
+	-s service to be checked (http, matml_core, console_nigeria etc)
 EOF
 }
 
