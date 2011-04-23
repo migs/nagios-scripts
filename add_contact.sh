@@ -1,8 +1,17 @@
 #!/bin/bash
+
 # Adds a nagios contact
 
-CONTACTS_FILE="/usr/local/nagios/etc/contacts.cfg"
-BACKUP_DIR="/usr/local/nagios/etc/.old"
+# v1.0 stuart.moore@monitisegroup.com
+# + Original Version
+# v1.1 stuart.moore@monitisegroup.com
+# + Warns that the user must be manually added to contactgroups.cfg
+# + Tidied up some variables
+
+NAGIOS_PATH="/usr/local/nagios/etc"
+CONTACTS_FILE="$NAGIOS_PATH/contacts.cfg"
+CONTACTGROUPS_FILE="$NAGIOS_PATH/contactgroups.cfg"
+BACKUP_DIR="$NAGIOS_PATH/etc/.old"
 TIMESTAMP=`date "+%Y%m%d-%H%M"`
 CONTACT_NAME=$1
 CONTACT_ALIAS=$2
@@ -26,3 +35,5 @@ else
 	echo -e "\temail\t$CONTACT_EMAIL" >> $CONTACTS_FILE
 	echo -e "}" >> $CONTACTS_FILE
 fi
+
+echo -e "User $CONTACT_NAME must now be manually added to $CONTACTGROUPS_FILE"
