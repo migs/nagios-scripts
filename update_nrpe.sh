@@ -54,7 +54,7 @@ case $HOST_OS in
     ssh root@$FQDN "pkill -z $ZONENAME nrpe"
     ;;
   Linux)
-    ssh root@$FQDN killall nrpe"
+    ssh root@$FQDN "killall nrpe"
     ;;
   *)
     echo -e "Unknown OS, unable to safely stop NRPE. Carrying on anyway ...
