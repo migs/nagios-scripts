@@ -86,10 +86,6 @@ else
 	else
 		define_host
 		chown nagios:apache $HOSTS_FILE
-#		HOST_OS=`ssh -l root $FQDN uname`
-#		HOST_PLATFORM=`ssh -l root $FQDN uname -i`
-#		scp /usr/local/nagios/scripts/nrpe.$HOST_OS.$HOST_PLATFORM.tar.gz root@$FQDN:/opt
-#		ssh root@$FQDN "cd /opt ; gunzip nrpe.$HOST_OS.$HOST_PLATFORM.tar.gz; tar xf nrpe.$HOST_OS.$HOST_PLATFORM.tar ; cd nrpe ; ./nrpe.install ; cd .. ; rm nrpe.$HOST_OS.$HOST_PLATFORM.tar"
 		/etc/init.d/nagios reload
 	fi
 fi
