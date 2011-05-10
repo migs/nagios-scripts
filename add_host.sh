@@ -8,12 +8,8 @@
 #	+ Now installs NRPE (the nagios agent) on the remote host
 # v1.2 stuart.moore@monitisegroup.com
 #	+ NRPE stuff moved to a seperate update_nrpe script
-
-# TO DO LIST:
-# - Convert the echo spam to a function
-# - Make all of the host and service variables actual variables in this script
-# - Have a disable flag for the agent installation.
-
+# v1.3 stuart.moore@monitisegroup.com
+#	+ DNS lookup now has error handling.
 
 usage()
 {
@@ -77,7 +73,11 @@ if [ -z $FQDN ] || [ -z $HOSTGROUP ] || [ -z $CONTACTGROUPS ]; then
 	exit 1
 else
 	HOST=`echo $FQDN | cut -f1 -d "."`
-	IPADDR=`host $FQDN | cut -f 4 -d " "`
+	IPADDR=`getent hosts $FQDN | cut -f 1 -d " "`
+	if [ -z $IPADDR ]; then
+		echo $FQDN does not exist in DNS! Aborting ...
+		exit 1
+	fi
 	HOSTS_DIR="/usr/local/nagios/etc/hosts"
 	HOSTS_FILE="$HOSTS_DIR"/"$HOST".cfg
 	if [ -e "$HOSTS_FILE" ]; then
