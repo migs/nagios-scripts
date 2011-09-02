@@ -10,6 +10,8 @@
 #	+ NRPE stuff moved to a seperate update_nrpe script
 # v1.3 stuart.moore@monitisegroup.com
 #	+ DNS lookup now has error handling.
+# v1.4 stuart.moore@monitisegroup.com
+#	+ Added check type, allowing for SSH, RDP and PING (RDP and PING needs testing!)
 
 usage()
 {
@@ -23,6 +25,7 @@ OPTIONS:
 	-g Hostgroup			
 	-h Show this message
 	-H FQDN of the host to be added
+	-k Check type (ssh, rdp, ping)
 EOF
 }
 
@@ -33,7 +36,7 @@ define_host()
 	echo -e "\thost_name $HOST" >> $HOSTS_FILE
 	echo -e "\talias $FQDN" >> $HOSTS_FILE
 	echo -e "\taddress $IPADDR" >> $HOSTS_FILE
-	echo -e "\tcheck_command check_ssh" >> $HOSTS_FILE
+	echo -e "\tcheck_command check_$CHECK" >> $HOSTS_FILE
 	echo -e "\tmax_check_attempts 10" >> $HOSTS_FILE
 	echo -e "\tactive_checks_enabled 1" >> $HOSTS_FILE
 	echo -e "\tflap_detection_enabled 1" >> $HOSTS_FILE
@@ -60,6 +63,9 @@ do
 			;;
 		H)
 			FQDN=$OPTARG
+			;;
+		k)
+			CHECK=$OPTARG
 			;;
 		?)
 			usage
