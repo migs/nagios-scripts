@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# v1.0 stuart.moore@monitisegroup.com
+# v1.0 stuart.moore@gmail.com
 #	+ Filesystem checking.
-# v1.1 stuart.moore@monitisegroup.com
+# v1.1 stuart.moore@gmail.com
 #	+ added zpools checking.
 
 # TO DO LIST:
@@ -36,7 +36,7 @@ define_service()
 		echo -e "\tservice_description $1: $2" >> $HOSTS_FILE
 		echo -e "\tcheck_command check_$1!10%!2%!$2"  >> $HOSTS_FILE
 	fi
-	if [ "$1" == "zpools" ] || [ "$1" == "http" ] || [ "$1" == "https" ] || [ "$1" == "ssh" ] || [ "$1" == "matml_core" ]; then
+	if [ "$1" == "zpools" ] || [ "$1" == "http" ] || [ "$1" == "https" ] || [ "$1" == "ssh" ] ; then
 		echo -e "\tservice_description $1">> $HOSTS_FILE
 		echo -e "\tcheck_command check_$1">> $HOSTS_FILE
 	fi
