@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# v1.0 stuart.moore@monitisegroup.com
+# v1.0 stuart.moore@gmail.com
 #	+ Adds the URL. Simples.
 
 usage()
