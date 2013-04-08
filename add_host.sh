@@ -1,16 +1,16 @@
 #!/bin/bash
 
-# v1.0 stuart.moore@monitisegroup.com
+# v1.0 stuart.moore@gmail.com
 #	+ Just adds the host, including ssh and / filesystem checking.
-# v1.1 stuart.moore@monitisegroup.com
+# v1.1 stuart.moore@gmail.com
 #	- Removed everything except the ssh check, everything else
 #		is now in a seperate script.
 #	+ Now installs NRPE (the nagios agent) on the remote host
-# v1.2 stuart.moore@monitisegroup.com
+# v1.2 stuart.moore@gmail.com
 #	+ NRPE stuff moved to a seperate update_nrpe script
-# v1.3 stuart.moore@monitisegroup.com
+# v1.3 stuart.moore@gmail.com
 #	+ DNS lookup now has error handling.
-# v1.4 stuart.moore@monitisegroup.com
+# v1.4 stuart.moore@gmail.com
 #	+ Added check type, allowing for SSH, RDP and PING (RDP and PING needs testing!)
 
 usage()
