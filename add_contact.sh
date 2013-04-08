@@ -2,9 +2,9 @@
 
 # Adds a nagios contact
 
-# v1.0 stuart.moore@monitisegroup.com
+# v1.0 stuart.moore@gmail.com
 # + Original Version
-# v1.1 stuart.moore@monitisegroup.com
+# v1.1 stuart.moore@gmail.com
 # + Warns that the user must be manually added to contactgroups.cfg
 # + Tidied up some variables
 
@@ -19,7 +19,7 @@ CONTACT_EMAIL=$3
 
 if [ -z "$1" ] || [ -z "$2" ] || [ -z "$3" ]; then
 	echo Usage: $0 [Username] [Alias] [E-Mail address]
-	echo -e "\nExample: $0 moores \"Stuart Moore\" stuart.moore@monitisegroup.com"
+	echo -e "\nExample: $0 moores \"Stuart Moore\" stuart.moore@gmail.com"
 	exit 1
 else
 	cp $CONTACTS_FILE $BACKUP_DIR/contacts.cfg.$TIMESTAMP
