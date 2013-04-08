@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# v1.0 stuart.moore@monitisegroup.com
+# v1.0 stuart.moore@gmail.com
 #	+ Pushes NRPE to the defined host.
-# v1.1 stuart.moore@monitisegroup.com
+# v1.1 stuart.moore@gmail.com
 #      + NRPE restart method changed depending upon client OS. This is only temporary until "/etc/init.d/nrpe stop" is fixed
 
 usage()
